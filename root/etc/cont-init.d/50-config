@@ -19,7 +19,7 @@ ln -sf /config/collector.yaml /scrutiny/config/collector.yaml
 
 # copy crontab if needed
 [[ ! -f /config/crontabs/root ]] && \
-	cp /etc/crontabs/root /config/crontabs/
+    cp /etc/crontabs/root /config/crontabs/
 
 # import user crontabs
 rm /etc/crontabs/*
@@ -28,14 +28,14 @@ sed -i 's|{SCRUTINY_API_ENDPOINT}|'${SCRUTINY_API_ENDPOINT}'|g' /etc/crontabs/ro
 
 # remove services unless they're enabled
 if [[ -z "$SCRUTINY_WEB" ]]; then
-    rm -rf /etc/services.d/web
+    touch /etc/services.d/web/down
 fi
 
 if [[ -z "$SCRUTINY_COLLECTOR" ]]; then
-    rm -rf /etc/services.d/cron
+    touch /etc/services.d/cron/down
 fi
 
 # permissions
 chown -R abc:abc \
-	/config \
+  /config \
     /app/scrutiny-web

@@ -256,5 +256,6 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **19.01.22:** - Rebase to Alpine 3.15.
 * **22.11.20:** - Added fix for `nsswitch.conf` to resolve local hosts
 * **17.09.20:** - Initial Release.

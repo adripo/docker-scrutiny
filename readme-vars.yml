@@ -32,6 +32,7 @@ param_env_vars:
   - { env_var: "SCRUTINY_API_ENDPOINT", env_value: "http://localhost:8080", desc: "# optional - API endpoint of the scrutiny UI. Do not change unless using as a remote collector" }
   - { env_var: "SCRUTINY_WEB", env_value: "true", desc: "# optional - Run the web service." }
   - { env_var: "SCRUTINY_COLLECTOR", env_value: "true", desc: "# optional - Run the metrics collector." }
+  - { env_var: "SCRUTINY_COLLECTOR_CRON", env_value: "0 0 * * *", desc: "# optional - Crontab schedule expression. _See https://crontab.guru/ for details._" }
 
 param_usage_include_vols: true
 param_volumes:

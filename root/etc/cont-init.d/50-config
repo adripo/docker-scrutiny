@@ -1,5 +1,6 @@
 #!/usr/bin/with-contenv bash
 
+SCRUTINY_COLLECTOR_CRON=${SCRUTINY_COLLECTOR_CRON:-"0 0 * * *"}
 SCRUTINY_API_ENDPOINT=${SCRUTINY_API_ENDPOINT:-http://localhost:8080}
 
 mkdir -p \
@@ -24,6 +25,7 @@ ln -sf /config/collector.yaml /scrutiny/config/collector.yaml
 # import user crontabs
 rm /etc/crontabs/*
 cp /config/crontabs/* /etc/crontabs/
+sed -i 's|{SCRUTINY_COLLECTOR_CRON}|'"${SCRUTINY_COLLECTOR_CRON}"'|g' /etc/crontabs/root
 sed -i 's|{SCRUTINY_API_ENDPOINT}|'${SCRUTINY_API_ENDPOINT}'|g' /etc/crontabs/root
 
 # remove services unless they're enabled

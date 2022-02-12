@@ -141,6 +141,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e SCRUTINY_API_ENDPOINT=http://localhost:8080` | # optional - API endpoint of the scrutiny UI. Do not change unless using as a remote collector |
 | `-e SCRUTINY_WEB=true` | # optional - Run the web service. |
 | `-e SCRUTINY_COLLECTOR=true` | # optional - Run the metrics collector. |
+| `-e SCRUTINY_COLLECTOR_CRON=0 0 * * *` | # optional - Crontab schedule expression. _See https://crontab.guru/ for details._ |
 | `-v /config` | Where config is stored. |
 | `-v /run/udev:ro` | Provides necessary metadata to Scrutiny. |
 | `--device /dev/sda` | This is how Scrutiny accesses drives. Optionally supply `/dev:/dev` instead for all devices. |
